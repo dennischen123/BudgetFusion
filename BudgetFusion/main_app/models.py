@@ -10,22 +10,6 @@ LENGTH = (
 )
 
 # Create your models here.
-
-class Expense(models.Model):
-    name = models.CharField(max_length=100)
-    date = models.DateField('expense date')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.name} added on {self.date}'
-
-class Category(models.Model):
-    name = models.CharField(max_length=100)
-    budget = models.ForeignKey(Budget, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
-
 class Budget(models.Model):
     name = models.CharField(max_length=100)
     total = models.IntegerField()
@@ -37,6 +21,24 @@ class Budget(models.Model):
 
     def __str__(self):
         return f'{self.name} - {self.length}ly - Total = {self.total}'
+
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    budget = models.ForeignKey(Budget, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+class Expense(models.Model):
+    name = models.CharField(max_length=100)
+    date = models.DateField('expense date')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name} added on {self.date}'
+
+
+
 
 
 
