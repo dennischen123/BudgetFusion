@@ -24,6 +24,7 @@ class Budget(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
+    # total = models.IntegerField()
     budget = models.ForeignKey(Budget, on_delete=models.CASCADE)
 
     def __str__(self):
