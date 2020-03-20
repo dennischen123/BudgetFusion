@@ -1,34 +1,69 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .models import Budget, Category, Expense
+from .forms import BudgetForm, CategoryForm, ExpenseForm
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def about(request):
     return render(request, 'about.html')
 
 def home(request):
-    pass
+    return render(request, 'home.html')
 
 # crud functions for Budget ###
 ###########################################################
 #function for index(all budget)
 def budget_index(request):
-    pass
+    budgets = Budget.objects.all()
+    return render(request, 'budgets/index.html', { 'budgets' : budgets})
 
 #function for detail(single budget)
 def budget_detail(request, budget_id):
-    pass
+    budgets = Budget.objects.all()
+    budget = Budget.objects.get(id=budget_id)
+    budget_form = BudgetForm()
+    category_form = CategoryForm()
+    expense_form = ExpenseForm()
+    return render(request, 'budgets/details.html', { 
+        'budget' : budget,
+        'budgets' : budgets,
+        'budget_form' : budget_form,
+        'category_form' : category_form,
+        'expense_form' : expense_form,
+        })
+
 
 #function for create
 def budget_create(request):
-    pass
+    if request.method == 'POST':
+        budget_form = BudgetForm(request.POST)
+        if budget_form.is_valid():
+            budget = budget_form.save(commit=False)
+            budget.user = request.user
+            budget.save()
+            return redirect('budget_index')
+    else:
+        budget_form = BudgetForm()
+    return render(request, 'budgets/budget_form.html', {'budget_form' : budget_form})
 
 #function for update
 def budget_update(request, budget_id):
-    pass
+    budget = Budget.objects.get(id=budget_id)
+
+    if request.method == "POST":
+        budget_form = BudgetForm(request.POST)
+        if budget_form.is_valid():
+            budget = budget_form.save()
+            return redirect('budget_index')
+    else:
+        budget_form = BudgetForm(instance=budget)
+    return render(request, 'budgets/budget_form.html', { 'budget_form' : budget_form })
 
 #function for delete
 def budget_delete(request, budget_id):
-    pass
+    return Budget.objects.get(id=budget_id).delete() and redirect('budget_index')
 
 
     # crud functions for Category ##
