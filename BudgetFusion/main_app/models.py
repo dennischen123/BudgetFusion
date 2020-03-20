@@ -18,9 +18,10 @@ class Budget(models.Model):
         choices=LENGTH,
         default=LENGTH[1][0]
     )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.name} - {self.length}ly - Total = {self.total}'
+        return f'{self.name} - Total = {self.total}'
 
 class Category(models.Model):
     name = models.CharField(max_length=100)

@@ -112,3 +112,20 @@ def expense_update(request, expense_id):
 #function for delete
 def expense_delete(request, expense_id):
     pass
+
+
+
+
+########## sign up #############
+def signup(request):
+    error_message = ''
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('budget_index')
+        else:
+            error_message = 'Invalid sign up - try again'
+    form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form' : form, 'error_message' : error_message})
