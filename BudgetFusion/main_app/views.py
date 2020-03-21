@@ -89,13 +89,17 @@ def category_delete(request, delete_id):
     pass
 
 
-
+    # path('budgets/<int:budget_id>/expenses/', views.expense_index, name="expense_index"),
+    # path('budgets/<int:budget_id/expenses/<int:expense_id>/detail/', views.expense_detail, name="expense_detail"),
+    # path('budgets/<int:budget_id/expenses/create/', views.expense_index, name="expense_create"),
+    # path('budgets/<int:budget_id/expenses/<int:expense_id>/update', views.expense_update, name="expense_update"),
+    # path('budgets/<int:budget_id/expenses/<int:expense_id>/delete', views.expense_delete, name="expense_delete"),
     # crud functions for Expense ##
 ###########################################################
 #function for index(all Expense)
 
 def expense_index(request):
-    pass
+    expenses 
 
 #function for detail(single Expense)
 def expense_detail(request, expense_id):

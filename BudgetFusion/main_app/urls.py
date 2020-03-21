@@ -12,18 +12,18 @@ urlpatterns = [
     path('budgets/<int:budget_id>/delete/', views.budget_delete, name="budget_delete"),
 
     # crud routes for Category
-    path('categories/', views.category_index, name="category_index"),
-    path('categories/<int:category_id>/detail/', views.category_detail, name="category_detail"),
-    path('categories/create/', views.category_create, name="category_create"),
-    path('categories/<int:category_id>/update/', views.category_update, name="category_update"),
-    path('categories/<int:category_id>/delete/', views.category_delete, name="category_delete"),
+    path('budgets/<int:budget_id>/categories/', views.category_index, name="category_index"),
+    path('budgets/<int:budget_id>/categories/<int:category_id>/detail/', views.category_detail, name="category_detail"),
+    path('budgets/<int:budget_id>/categories/create/', views.category_create, name="category_create"),
+    path('budgets/<int:budget_id>/categories/<int:category_id>/update/', views.category_update, name="category_update"),
+    path('budgets/<int:budget_id>/categories/<int:category_id>/delete/', views.category_delete, name="category_delete"),
 
     # crud routes for Expense
-    path('expenses/', views.expense_index, name="expense_index"),
-    path('expenses/<int:expense_id>/detail/', views.expense_detail, name="expense_detail"),
-    path('expenses/create/', views.expense_index, name="expense_create"),
-    path('expenses/<int:expense_id>/update', views.expense_update, name="expense_update"),
-    path('expenses/<int:expense_id>/delete', views.expense_delete, name="expense_delete"),
+    path('budgets/<int:budget_id>/categories/<int:category_id>/expenses/', views.expense_index, name="expense_index"),
+    path('budgets/<int:budget_id>/categories/<int:category_id>/expenses/<int:expense_id>/detail/', views.expense_detail, name="expense_detail"),
+    path('budgets/<int:budget_id>/categories/<int:category_id>/expenses/create/', views.expense_index, name="expense_create"),
+    path('budgets/<int:budget_id>/categories/<int:category_id>/expenses/<int:expense_id>/update', views.expense_update, name="expense_update"),
+    path('budgets/<int:budget_id>/categories/<int:category_id>/expenses/<int:expense_id>/delete', views.expense_delete, name="expense_delete"),
 
     path('accounts/signup', views.signup, name='signup'),
 ]
