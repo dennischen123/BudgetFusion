@@ -10,9 +10,9 @@ class BudgetForm(ModelForm):
 class CategoryForm(ModelForm):
     class Meta:
         model = Category
-        fields = ('name',)
+        fields = ('name','total')
 
 class ExpenseForm(ModelForm):
     class Meta:
         model = Expense
-        fields = ('name', 'date')
+        fields = ('name', 'amount', 'date')

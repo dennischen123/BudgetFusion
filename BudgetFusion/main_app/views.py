@@ -69,55 +69,92 @@ def budget_delete(request, budget_id):
     # crud functions for Category ##
 ###########################################################
 #function for index(all Category)
-def category_index(request):
+def category_index(request, budget_id):
+    budget = Budget.objects.get(id=budget_id)
+    categories = Category.objects.filter(budget_id=budget_id)
+    return render(request, 'categories/index.html', { 'categories': categories, 'budget' : budget })
+
+    
+# function for detail(single Category)
+def category_detail(request, budget_id, category_id):
     pass
 
-# function for detail(single Category)
-def category_detail(request, category_id):
-    pass
 
 # function for create
-def category_create(request):
-    pass
+def category_create(request, budget_id, category_id):
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            return redirect('category_index', budget_id)
+    else:
+        form = CategoryForm()
+    return render(request, 'categories/category_form.html', { 'form' : form})
 
 # function for update
-def category_update(request, update_id):
-    pass
+def category_update(request, budget_id, category_id):
+    category = Category.objects.get(id=category_id)
+    if request.method == 'POST':
+        form = CategoryForm(request.POST, instance=category)
+        if form.is_valid():
+            category = form.save()
+            return redirect('category_index', budget_id, category_id)
+    else:
+        form = CategoryForm(instance=category)
+    return render(request, 'categories/category_form.html', { 'form' : form})
 
 # function for delete
-def category_delete(request, delete_id):
-    pass
+def category_delete(request, budget_id, category_id):
+    return Category.objects.get(id=category_id).delete() and redirect('category_index', budget_id)
 
 
-    # path('budgets/<int:budget_id>/expenses/', views.expense_index, name="expense_index"),
-    # path('budgets/<int:budget_id/expenses/<int:expense_id>/detail/', views.expense_detail, name="expense_detail"),
-    # path('budgets/<int:budget_id/expenses/create/', views.expense_index, name="expense_create"),
-    # path('budgets/<int:budget_id/expenses/<int:expense_id>/update', views.expense_update, name="expense_update"),
-    # path('budgets/<int:budget_id/expenses/<int:expense_id>/delete', views.expense_delete, name="expense_delete"),
     # crud functions for Expense ##
 ###########################################################
 #function for index(all Expense)
 
-def expense_index(request):
-    expenses 
+#index all expense for a category of a budget
+def expense_index(request, budget_id, category_id):
+    categories = Category.objects.filter(budget_id=budget_id)
+    expenses = Expense.objects.filter(category_id=category_id)
+    context = {
+        'expenses' : expenses,
+        'categories' : categories
+    }
+    return render(request, 'categories/details.html', {context})
+
 
 #function for detail(single Expense)
-def expense_detail(request, expense_id):
+def expense_detail(request, budget_id, category_id, expense_id):
     pass
 
 #function for create
-def expense_create(request):
-    pass
+def expense_create(request, budget_id, category_id):
+    if request.method == 'POST':
+        form = ExpenseForm(request.POST)
+        if form.is_valid():
+            expense = form.save()
+            return redirect('expense_index', budget_id, category_id)
+    else:
+        form = ExpenseForm()
+    return render(request, 'expenses/expense_form.html', { 'form': form})
+            
 
 #function for update
-def expense_update(request, expense_id):
-    pass
+def expense_update(request, budget_id, category_id, expense_id):
+    expense = Expense.objects.get(id=expense_id)
+    if request.method == 'POST':
+        form = ExpenseForm(request.POST, instance=expense)
+        if form.is_valid():
+            expense = form.save()
+            return redirect('expense_index', budget_id, category_id)
+    else:
+        form = ExpenseForm(instance=expense)
+    return render(request, 'expenses/expense_form.html', { 'form': form})
+
+
 
 #function for delete
-def expense_delete(request, expense_id):
-    pass
-
-
+def expense_delete(request, budget_id, category_id, expense_id):
+    return Expense.objects.get(id=expense_id).delete() and redirect('expense_index', budget_id, category_id)
 
 
 ########## sign up #############
