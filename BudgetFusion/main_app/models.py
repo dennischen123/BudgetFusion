@@ -25,7 +25,7 @@ class Budget(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
-    # total = models.IntegerField()
+    total = models.IntegerField(default=0)
     budget = models.ForeignKey(Budget, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -33,6 +33,7 @@ class Category(models.Model):
 
 class Expense(models.Model):
     name = models.CharField(max_length=100)
+    amount = models.IntegerField(default=0)
     date = models.DateField('expense date')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
