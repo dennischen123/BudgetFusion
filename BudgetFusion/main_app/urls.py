@@ -3,6 +3,11 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+    # testing
+    path('reports/', views.reports, name='reports'),
+    # api route for report
+    path('api/reports/budgets/<int:budget_id>/categories/<int:category_id>/expenses/', views.reports_detail, name="reports_detail"),
+
 
     # crud routes for Budget
     path('budgets/', views.budget_index, name="budget_index"),
