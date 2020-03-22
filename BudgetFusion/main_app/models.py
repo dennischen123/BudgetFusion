@@ -22,6 +22,12 @@ class Budget(models.Model):
 
     def __str__(self):
         return f'{self.name} - Total = {self.total}'
+    
+    def get_categories(self):
+        return Category.objects.filter(budget_id=self.id)
+    
+    def get_expenses(self, category):
+        return Expense.objects.filter(category_id=category.id)
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -30,6 +36,11 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_expenses(self):
+        return Expense.objects.filter(category_id=self.id)
+    
+
 
 class Expense(models.Model):
     name = models.CharField(max_length=100)

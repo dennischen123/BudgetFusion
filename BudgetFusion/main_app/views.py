@@ -12,6 +12,23 @@ def about(request):
 def home(request):
     return render(request, 'home.html')
 
+## reports testing start #############
+    #testing only
+def reports(request):
+    # hard coded data for testing graphs
+    current = [25, 30, 25, 35]
+    budget = [30, 20, 30, 40]
+    return render(request, 'reports/reports.html', {'current': current, 'budget' : budget})
+
+#actual reports function
+def reports_detail(request, budget_id):
+    categories = Category.objects.filter(budget_id=budget_id)
+    context = {
+
+    }
+    return render(request, 'reports/reports.html', {context})
+#### reports testing ends #######################
+
 # crud functions for Budget ###
 ###########################################################
 #function for index(all budget)

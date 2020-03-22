@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>reports page testing</title>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootlint/1.0.0/bootlint.min.js" integrity="sha384-N+BTm0BCfumqkjdZt552I0kBBcMzkYe8aWUaSqL13fGJEGVhOi0rljWKtlU6sC6Z" crossorigin="anonymous"></script>
+    <script defer src="../../static/scripts/reports.js"></script>
+</head>
+<body>
+<main>
+    <div class="container">
+        <div class="row">
+            {% comment %} <div class="col-3"></div> {% endcomment %}
+            <div class="col-12 mb-5">
+                <canvas id="myChart" width="300" height="150"></canvas>
+            </div>
+            {% comment %} <div class="col-3"></div> {% endcomment %}
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 mt-5">
+                <canvas id="mixedChart" width="300" height="150"></canvas>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+</main>
+
+
+
+</body>
+</html>
+
+<script>
+let ctx = document.getElementById('myChart').getContext('2d');
+let ctx2 = document.getElementById('mixedChart').getContext('2d');
+let myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Utility', 'Transportation', 'Shopping', 'dinner', 'bar', 'groceries'],
+        datasets: [{
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+
+});
+
+var mixedChart = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        datasets: [{
+            label: 'Budget',
+            {% comment %} data: [25, 30, 30, 40], {% endcomment %}
+            data: {{budget}},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+            ],
+        }, {
+            label:'Current',
+            {% comment %} data: [40, 20, 10, 30], {% endcomment %}
+            data: {{current}},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+            ],
+            type: 'bar'
+        }],
+        labels: ['Utility', 'Gas', 'Bar', 'Grocery']
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
