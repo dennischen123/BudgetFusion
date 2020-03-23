@@ -89,7 +89,7 @@ def budget_delete(request, budget_id):
 def category_index(request, budget_id):
     budget = Budget.objects.get(id=budget_id)
     categories = Category.objects.filter(budget_id=budget_id)
-    return render(request, 'categories/index.html', { 'categories': categories, 'budget' : budget })
+    return render(request, 'categories/category_list.html', { 'categories': categories, 'budget' : budget })
 
     
 # function for detail(single Category)
