@@ -7,7 +7,7 @@
             {% if category.id == category_id%}
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <a href="{% url 'category_index' budget_id%}">
+                        <a href="{% url 'category_index' budget_id%}" class="text-decoration-none">
 
                         <span class="card-title">{{ category.name }}</span>
                         <p>Name: {{ category.name }}</p>
