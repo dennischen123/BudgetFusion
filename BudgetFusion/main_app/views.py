@@ -36,6 +36,7 @@ def budget_index(request):
     budgets = Budget.objects.all()
     return render(request, 'budgets/index.html', { 'budgets' : budgets})
 
+
 #function for detail(single budget)
 def budget_detail(request, budget_id):
     budgets = Budget.objects.all()
@@ -70,7 +71,7 @@ def budget_update(request, budget_id):
     budget = Budget.objects.get(id=budget_id)
 
     if request.method == "POST":
-        budget_form = BudgetForm(request.POST)
+        budget_form = BudgetForm(request.POST, instance=budget)
         if budget_form.is_valid():
             budget = budget_form.save()
             return redirect('budget_index')
