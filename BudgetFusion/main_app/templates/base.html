@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Budget Fusion</title>
+    {% comment %} Google Font {% endcomment %}
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header></header>
@@ -14,6 +19,8 @@
         {% endblock %}
     </main>
 
-    <footer></footer>
+   <footer class="page-footer">
+<div class="right">All Rights Reserved, &copy; 2020 Budget Fusion &nbsp;</div>
+  </footer>
 </body>
 </html>
