@@ -2,6 +2,22 @@
 
 {% block content %}
 
-<h1>Budget Index Page</h1>
+<h1>All Budgets</h1>
+<div class="container">
+<div class="row justify-content-center">
+{% for budget in budgets %}
+<a href="{% url 'category_index' budget.id %}">
+   <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <span class="card-title">{{ budget.name }}</span>
+      <p>Name: {{ budget.name }}</p>
+      <p>Total: ${{ budget.total }}</p>
+        <p>Length: {{ budget.length}}</p>
+    </div>
+  </div>
+  </a>
+{% endfor %}
+</div>
+</div>
 
 {% endblock %}

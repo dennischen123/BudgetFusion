@@ -2,9 +2,9 @@
 <h1>Category List View</h1>
 <div class="container">
     <div class="row">
-        <div class="col-4">
+        <div class="col-6">
             {% for category in categories %}
-            <a href="{% url 'expense_index' budget_id category.id %}">
+            {% if category.id == category_id%}
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <span class="card-title">{{ category.name }}</span>
@@ -12,21 +12,21 @@
                         <p>Total: ${{ category.total }}</p>
                     </div>
                 </div>
-            </a>
+            {% endif%}
             {% endfor %}
         </div>
 
-        <div class="col-8">
-            {% for category in categories %}
-            <a href="{% url 'category_index' budget.id %}">
-                <div class="card" style="width: 18rem;">
+        <div class="col-6">
+            {% for expense in expenses %}
+                <div class="card" style="width: 20rem height: 25rem;">
                     <div class="card-body">
-                        <span class="card-title">{{ category.name }}</span>
-                        <p>Name: {{ category.name }}</p>
-                        <p>Total: ${{ category.total }}</p>
+                        <span class="card-title">Details</span>
+                        <p>Name: {{ expense.name }}</p>
+                        <p>Amount: ${{ expense.amount }}</p>
+                        <p>Date: {{ expense.date }}</p>
+                        <p></p>
                     </div>
                 </div>
-            </a>
             {% endfor %}
         </div>
     </div>

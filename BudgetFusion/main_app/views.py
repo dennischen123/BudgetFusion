@@ -89,7 +89,7 @@ def budget_delete(request, budget_id):
 def category_index(request, budget_id):
     budget = Budget.objects.get(id=budget_id)
     categories = Category.objects.filter(budget_id=budget_id)
-    return render(request, 'categories/category_list.html', { 'categories': categories, 'budget' : budget })
+    return render(request, 'categories/category_list.html', { 'categories': categories, 'budget' : budget, 'budget_id' : budget_id })
 
     
 # function for detail(single Category)
@@ -132,11 +132,7 @@ def category_delete(request, budget_id, category_id):
 def expense_index(request, budget_id, category_id):
     categories = Category.objects.filter(budget_id=budget_id)
     expenses = Expense.objects.filter(category_id=category_id)
-    context = {
-        'expenses' : expenses,
-        'categories' : categories
-    }
-    return render(request, 'categories/details.html', {context})
+    return render(request, 'categories/category_details.html', { 'expenses' : expenses,'categories' : categories, 'category_id' :category_id, 'budget_id' : budget_id})
 
 
 #function for detail(single Expense)
