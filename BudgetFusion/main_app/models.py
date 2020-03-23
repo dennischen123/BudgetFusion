@@ -4,17 +4,18 @@ from datetime import date
 from django.contrib.auth.models import User
 
 LENGTH = (
-    ('W', 'Week'),
-    ('M', 'Month'),
-    ('Y', 'Year')
+    ('Week', 'Week'),
+    ('Month', 'Month'),
+    ('Year', 'Year')
 )
+
 
 # Create your models here.
 class Budget(models.Model):
     name = models.CharField(max_length=100)
     total = models.IntegerField()
     length = models.CharField(
-        max_length=1,
+        max_length=5,
         choices=LENGTH,
         default=LENGTH[1][0]
     )

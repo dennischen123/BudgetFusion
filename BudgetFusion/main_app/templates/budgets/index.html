@@ -22,7 +22,9 @@
         </a>
   <div class="btn">
     <button type="button" class="btn btn-outline-success rounded-pill">Edit</button>
-    <button type="button" class="btn btn-success rounded-pill">Delete</button>
+    <a href="{% url 'budget_delete' budget.id %}">
+      <button class="btn btn-success rounded-pill">Delete</button>
+    </a>
 </div>
     </div>
   </div>
