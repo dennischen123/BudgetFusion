@@ -2,12 +2,14 @@
 
 {% block content %}
 
-<h1>All Budgets</h1>
+<h1>My Budgets</h1>
+{% comment %} <button type="button" class="btn btn-outline-success rounded-pill">Add Budget</button> {% endcomment %}
+
 <div class="container">
 <div class="row justify-content-center">
 {% for budget in budgets %}
 <a href="{% url 'category_index' budget.id %}">
-   <div class="card" style="width: 18rem;">
+   <div class="card rounded" style="width: 18rem;">
     <div class="card-body">
       <span class="card-title">{{ budget.name }}</span>
       <p>Name: {{ budget.name }}</p>
@@ -17,8 +19,8 @@
   </div>
   </a>
   <div class="btn">
-    <button type="button" class="btn btn-outline-success">Edit</button>
-    <button type="button" class="btn btn-success">Delete</button>
+    <button type="button" class="btn btn-outline-success rounded-pill">Edit</button>
+    <button type="button" class="btn btn-success rounded-pill">Delete</button>
 </div>
 {% endfor %}
 </div>
