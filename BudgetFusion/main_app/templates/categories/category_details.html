@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Category List View</h1>
+<h1>Category Detail View</h1>
 <div class="container">
     <div class="row">
         <div class="col-6">
@@ -11,7 +11,6 @@
                         <p>Name: {{ category.name }}</p>
                         <p>Total: ${{ category.total }}</p>
                     </div>
-                </div>
             {% endif%}
             {% endfor %}
         </div>
@@ -20,7 +19,7 @@
             {% for expense in expenses %}
                 <div class="card" style="width: 20rem height: 25rem;">
                     <div class="card-body">
-                        <span class="card-title">Details</span>
+                        <span class="card-title">Expense Details</span>
                         <p>Name: {{ expense.name }}</p>
                         <p>Amount: ${{ expense.amount }}</p>
                         <p>Date: {{ expense.date }}</p>

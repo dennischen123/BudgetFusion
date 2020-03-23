@@ -16,7 +16,7 @@
             {% endfor %}
         </div>
 
-        <div class="col-8">
+        {% comment %} <div class="col-8">
             {% for category in categories %}
             <a href="{% url 'category_index' budget.id %}">
                 <div class="card" style="width: 18rem;">
@@ -30,5 +30,5 @@
             {% endfor %}
         </div>
     </div>
-</div>
+</div> {% endcomment %}
 {% endblock %}
