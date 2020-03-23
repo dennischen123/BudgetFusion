@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
     # testing
     path('reports/', views.reports, name='reports'),
     # api route for report
