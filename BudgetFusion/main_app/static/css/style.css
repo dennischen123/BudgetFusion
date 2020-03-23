@@ -23,6 +23,10 @@ footer {
     color: #43A367;
   }
 
+ .navbar-brand {
+  font-family: 'Passion One', cursive;
+  }
+
   span {
     -webkit-text-stroke: 1px #43A367;
     -webkit-text-fill-color: transparent
