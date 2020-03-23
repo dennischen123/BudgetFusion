@@ -7,9 +7,12 @@
             {% if category.id == category_id%}
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
+                        <a href="{% url 'category_index' budget_id%}">
+
                         <span class="card-title">{{ category.name }}</span>
                         <p>Name: {{ category.name }}</p>
                         <p>Total: ${{ category.total }}</p>
+                        </a>
                     </div>
             {% endif%}
             {% endfor %}
