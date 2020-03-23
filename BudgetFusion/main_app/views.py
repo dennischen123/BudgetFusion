@@ -71,7 +71,7 @@ def budget_update(request, budget_id):
     budget = Budget.objects.get(id=budget_id)
 
     if request.method == "POST":
-        budget_form = BudgetForm(request.POST)
+        budget_form = BudgetForm(request.POST, instance=budget)
         if budget_form.is_valid():
             budget = budget_form.save()
             return redirect('budget_index')
