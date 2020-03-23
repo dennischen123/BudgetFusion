@@ -34,7 +34,12 @@ def reports_detail(request, budget_id):
 #function for index(all budget)
 def budget_index(request):
     budgets = Budget.objects.all()
+    # user_budgets = Budget.objects.get(id=1)
     return render(request, 'budgets/index.html', { 'budgets' : budgets})
+
+# def budget_index(request):
+#     budgets = Budget.objects.filter(user=user.id)
+#     return render(request, 'budgets/index.html', { 'budgets' : budgets})
 
 #function for detail(single budget)
 def budget_detail(request, budget_id):
