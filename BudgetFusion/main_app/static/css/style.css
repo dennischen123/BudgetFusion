@@ -1,0 +1,160 @@
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    background-color:#F2F8ED;
+  }
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    padding-top: 0;
+    text-align: right;
+  }
+
+  h1 {
+   text-align: center;
+   font-size: 50px;
+   font-family: 'Passion One', cursive;
+    color: #43A367;
+  }
+
+  span {
+    -webkit-text-stroke: 1px #43A367;
+    -webkit-text-fill-color: transparent
+  }
+
+  /* Home Page */
+  #circle {
+
+    animation: wheel 10s infinite linear alternate;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+#dollar {
+    animation: money 1s infinite ease-in-out alternate;
+}
+
+@keyframes wheel {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes money {
+    from {
+        transform: rotateX(0) rotateZ(0);
+    }
+
+    to {
+        transform: rotateX(15deg) rotateZ(0);
+    }
+}
+
+/* About Page */
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.snip1568 {
+  font-family: "Open Sans", Arial, sans-serif;
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: #141414;
+  text-align: left;
+  line-height: 1.4em;
+  font-size: 14px;
+  box-shadow: none !important;
+}
+
+.snip1568 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.snip1568 .profile-image img {
+  border-radius: 5px;
+  max-width: 100%;
+  height: 80px;
+  vertical-align: top;
+  float: left;
+}
+
+.snip1568 figcaption {
+  width: 100%;
+  background-color: #333333;
+  color: #fff;
+  padding: 25px;
+  display: inline-block;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.snip1568 figcaption:after {
+  content: "";
+  position: absolute;
+  left: 32px;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #333333 transparent transparent transparent;
+}
+
+.snip1568 h3,
+.snip1568 h4,
+.snip1568 p {
+  margin: 0 0 5px;
+}
+
+.snip1568 h3 {
+  font-weight: 600;
+  font-size: 1.2em;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.snip1568 h4 {
+  color: #8c8c8c;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.snip1568 p {
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.snip1568 .icons {
+  padding: 20px 90px;
+}
+
+.snip1568 i {
+  padding: 10px 2px;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: normal;
+  color: #ffffff;
+  opacity: 0.75;
+}
+
+.snip1568 i:hover {
+  opacity: 1;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+

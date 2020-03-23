@@ -6,11 +6,11 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
-def about(request):
-    return render(request, 'about.html')
-
 def home(request):
     return render(request, 'home.html')
+
+def about(request):
+    return render(request, 'about.html')
 
 ## reports testing start #############
     #testing only
@@ -89,7 +89,7 @@ def budget_delete(request, budget_id):
 def category_index(request, budget_id):
     budget = Budget.objects.get(id=budget_id)
     categories = Category.objects.filter(budget_id=budget_id)
-    return render(request, 'categories/index.html', { 'categories': categories, 'budget' : budget })
+    return render(request, 'categories/category_list.html', { 'categories': categories, 'budget' : budget })
 
     
 # function for detail(single Category)
