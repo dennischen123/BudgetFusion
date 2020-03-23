@@ -16,7 +16,7 @@
   {% if budget.user.id == user.id%}
    <div class="card rounded" style="width: 18rem;">
     <div class="card-body">
-    <a href="{% url 'category_index' budget.id %}">
+    <a href="{% url 'category_index' budget.id %}" class="text-decoration-none">
       <span class="card-title">{{ budget.name }}</span>
       <p>Name: {{ budget.name }}</p>
       <p>Total: ${{ budget.total }}</p>
