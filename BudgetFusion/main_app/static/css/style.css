@@ -52,8 +52,9 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background:#28a745;
+    background:white;
     text-align: center;
+    background-color: rgba(192, 240, 137, 0.918);
 }
 
 .Box h1{
@@ -72,9 +73,10 @@ a {
     padding: 14px 10px;
     width: 200px;
     outline: none;
-    color: white;
+    color:black;
     border-radius: 24px;
     transition: 0.25s;
+    font-size: 20px;
 }
 
 .Box input[type = "text"]:focus,.Box input[ type = "Password"]:focus{
@@ -90,10 +92,12 @@ a {
     border: 2px solid #8BC34A;
     padding: 14px 40px;
     outline: none;
-    color: white;
+    color:black;
+    font-size: 10px;
     border-radius: 24px;
     transition: 0.25s;
     cursor: pointer;
+    font-size: 15px;
 }
 .Box input[type="submit"]:hover{
     background: #8BC34A;
