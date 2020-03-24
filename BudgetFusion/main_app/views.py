@@ -155,7 +155,9 @@ def expense_create(request, budget_id, category_id):
     if request.method == 'POST':
         form = ExpenseForm(request.POST)
         if form.is_valid():
-            expense = form.save()
+            expense = form.save(commit=False)
+            expense.category_id = category_id
+            expense.save()
             return redirect('expense_index', budget_id, category_id)
     else:
         form = ExpenseForm()
@@ -170,7 +172,8 @@ def expense_update(request, budget_id, category_id, expense_id):
             expense = form.save()
             return redirect('expense_index', budget_id, category_id)
     else:
-        form = ExpenseForm(instance=expense)
+        form = ExpenseForm()
+
     return render(request, 'expenses/expense_form.html', { 'form': form})
 
 @login_required
