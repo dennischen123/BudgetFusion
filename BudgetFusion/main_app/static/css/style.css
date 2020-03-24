@@ -23,29 +23,26 @@ h1 {
    color: #43A367;
 }
 
-a {
-  text-decoration: none;
-}
 .navbar-brand, .nav-item {
   font-family: 'Passion One', cursive;
   }
 
-  .navbar-brand {
+.navbar-brand {
     font-size: 25px;
   }
 
-  .nav-item {
+.nav-item {
     font-size: 20px;
   }
 
-  span {
+span {
     -webkit-text-stroke: 1px #43A367;
     -webkit-text-fill-color: transparent
   }
 
 
-  /* Signup */
-  .Box{
+/* Signup */
+.Box{
     width: 300px;
     padding: 40px;
     position: absolute;
@@ -77,11 +74,12 @@ a {
     border-radius: 24px;
     transition: 0.25s;
     font-size: 20px;
+    font-family: 'Passion One', cursive;
 }
 
 .Box input[type = "text"]:focus,.Box input[ type = "Password"]:focus{
     width: 180px;
-    border-color: #8BC34A;
+    border-color: blue;
 }
 .Box input[Type="submit"]{
     border: 0;
@@ -97,15 +95,19 @@ a {
     border-radius: 24px;
     transition: 0.25s;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 20px;
 }
 .Box input[type="submit"]:hover{
     background: #8BC34A;
 }
 
+#submit {
+  font-family: 'Passion One', cursive;
+}
 
-  /* Home Page */
-  #circle {
+
+/* Home Page */
+#circle {
 
     animation: wheel 10s infinite linear alternate;
     transform-origin: center;
@@ -230,8 +232,6 @@ a {
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
-
-/*  Sign Up Button */
 
 /* Budget Form */
 .budget-form input {
