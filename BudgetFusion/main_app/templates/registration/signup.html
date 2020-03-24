@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% comment %} {% extends 'base.html' %}
 {% block content %}
 
  <h1>Sign Up </h1>
@@ -11,4 +11,35 @@
   {{ form.as_p }}
   <input type="submit" class="btn btn-success rounded-pill" value="Sign Up">
 </form> 
-{% endblock %}
+{% endblock %} {% endcomment %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+<form method="post" class="Box" action="{% url 'signup' %}">
+<h1>SignUp</h1>
+{% if error_message %}
+<p class="text-danger">{{ error_message }}</p>
+{% endif %}
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" class="btn btn-success rounded-pill" value="Signup">
+  <div class="d-flex justify-content-center links">
+			Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
+	</div>
+</form>
+  
+</body>
+</html>
+
+
