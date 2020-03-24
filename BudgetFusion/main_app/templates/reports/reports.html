@@ -37,13 +37,14 @@
     </header>
 <section>
   <div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <a class="btn btn-secondary dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Select Budget
   </a>
 
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  <div id="budgets" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     {% for budget in budgets %}
-        <a class="dropdown-item" href="#">{{ budget.name }}</a>
+        {% comment %} <a id="{{ budget.id }}" class="dropdown-item" value="{{budget.id}}" href="{% url 'api' user.id budget.id%}">{{ budget.name }}</a> {% endcomment %}
+        <a id="{{ budget.id }}" class="dropdown-item" value="{{budget.id}}" href="">{{ budget.name }}</a>
     {% endfor %}
   </div>
 </div>
@@ -60,11 +61,11 @@
             {% comment %} <div class="col-3"></div> {% endcomment %}
         </div>
         <div class="row">
-            <div class="col-3"></div>
-            <div class="col-6 mt-5">
+            {% comment %} <div class="col-3"></div> {% endcomment %}
+            <div class="col-12 mt-5">
                 <canvas id="mixedChart" width="300" height="150"></canvas>
             </div>
-            <div class="col-3"></div>
+            {% comment %} <div class="col-3"></div> {% endcomment %}
         </div>
     </div>
 </main>

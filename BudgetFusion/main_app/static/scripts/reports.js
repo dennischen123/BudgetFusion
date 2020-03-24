@@ -2,7 +2,6 @@ console.log("sanity check!")
 
 
 // let ctx = document.getElementById('myChart').getContext('2d');
-let ctx2 = document.getElementById('mixedChart').getContext('2d');
 // let myChart = new Chart(ctx, {
 //     type: 'doughnut',
 //     data: {
@@ -28,45 +27,96 @@ let ctx2 = document.getElementById('mixedChart').getContext('2d');
 //             borderWidth: 1
 //         }]
 //     },
-
 // });
+let ctx2 = document.getElementById('mixedChart').getContext('2d');
+let budgets_select = document.querySelectorAll('#budgets a')
+budgets_select.forEach(budget => budget.addEventListener('click', renderGraph))
 
-fetch('http://localhost:8000/api/user/1/budget/4')
-    .then((response) => {
-        return response.json()
-    })
-    .then((data) => {
-
-        render(data)
-        console.log(data)
-    })
-
-const render = (data) => {
-    let mixedChart = new Chart(ctx2, {
-        type: 'bar',
-        data: {
-            datasets: [{
-                label: data.budget_name,
-                data: [data.budget_total],
-                backgroundColor: 'rgba(255, 99, 132)',
-
-            }, {
-                label: 'Currently',
-                data: [data.expense_total],
-                backgroundColor: 'rgba(255, 99, 132, 0.8',
-                type: 'bar'
-            }],
-            labels: ['Budget1']
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-
+function renderGraph(event) {
+    // ProgressEvent.default()
+    event.preventDefault()
+    renderHelper(event.target.id)
 }
+// console.log(budgets_select)
+
+function renderHelper(budget_id) {
+    fetch('http://localhost:8000/api/user/1/budget/' + budget_id)
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+
+            render(data)
+            console.log(data)
+        })
+
+    const render = (data) => {
+        let mixedChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    label: data.budget_name,
+                    data: [data.budget_total],
+                    backgroundColor: 'rgba(255, 99, 132)',
+
+                }, {
+                    label: 'Currently',
+                    data: [data.expense_total],
+                    backgroundColor: 'rgba(255, 99, 132, 0.8',
+                    type: 'bar'
+                }],
+                labels: ['Budget1']
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+    }
+}
+
+// fetch('http://localhost:8000/api/user/1/budget/4')
+//     .then((response) => {
+//         return response.json()
+//     })
+//     .then((data) => {
+
+//         render(data)
+//         console.log(data)
+//     })
+
+// const render = (data) => {
+//     let mixedChart = new Chart(ctx2, {
+//         type: 'bar',
+//         data: {
+//             datasets: [{
+//                 label: data.budget_name,
+//                 data: [data.budget_total],
+//                 backgroundColor: 'rgba(255, 99, 132)',
+
+//             }, {
+//                 label: 'Currently',
+//                 data: [data.expense_total],
+//                 backgroundColor: 'rgba(255, 99, 132, 0.8',
+//                 type: 'bar'
+//             }],
+//             labels: ['Budget1']
+//         },
+//         options: {
+//             scales: {
+//                 yAxes: [{
+//                     ticks: {
+//                         beginAtZero: true
+//                     }
+//                 }]
+//             }
+//         }
+//     });
+
+// }
