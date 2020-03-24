@@ -1,4 +1,4 @@
-#!/Users/Dennis/coding/GA-SEI/fundamentals/django/BudgetFusion/.env/bin/python
+#!/Users/marcusgillespie/GA_SEI/homework/BudgetFusion/.env/bin/python
 from django.core import management
 
 if __name__ == "__main__":
