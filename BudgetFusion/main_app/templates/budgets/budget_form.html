@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Budget Form</h1>
-<section>
-    <form method="POST">
-        {% csrf_token %}
-        {{ budget_form.as_p}}
-        <button type="submit">submit</button>
-    </form>
-{% comment %} </section> {% endcomment %}
+<div class="container">
+    <div class="row d-flex justify-content-center">
+            <div class="card border border-success mt-4">
+                <h1 class="card-header border-bottom border-success" id="title">Budget Form</h1> ​
+                <div class="card-body">
+                    {% if error_message %}
+                    <p class="red-text">{{ error_message }}</p>{% endif %} 
+                    <form method="POST" class="budget-form">
+                        {% csrf_token %} {{ budget_form.as_p}}
+                        <button type="submit" class="btn btn-success rounded-pill">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

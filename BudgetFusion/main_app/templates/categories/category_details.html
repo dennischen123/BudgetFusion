@@ -8,9 +8,7 @@
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <a href="{% url 'category_index' budget_id%}" class="text-decoration-none">
-
                         <span class="card-title">{{ category.name }}</span>
-                        <p>Name: {{ category.name }}</p>
                         <p>Total: ${{ category.total }}</p>
                         </a>
                     </div>
@@ -20,7 +18,7 @@
 
         <div class="col-6">
             {% for expense in expenses %}
-                <div class="card" style="width: 20rem height: 25rem;">
+                <div id="expense-toggle" class="card" style="width: 20rem height: 25rem;">
                     <div class="card-body">
                         <span class="card-title">Expense Details</span>
                         <p>Name: {{ expense.name }}</p>

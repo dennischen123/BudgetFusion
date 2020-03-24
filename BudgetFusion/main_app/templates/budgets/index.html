@@ -5,9 +5,9 @@
   <p></p>
   <h1 class="ml-5">My Budgets</h1>
   <a href="{% url 'budget_create'%}" >
-    <button type="button" class="btn btn-outline-success rounded-pill mb-5 mt-1 mr-2">Add Budget</button>
+    <button type="button" class="btn btn-outline-success rounded-pill mb-5 mt-1 mr-1">Add Budget</button>
   </a>
-  </div>
+</div>
 
 
 <div class="container">
@@ -17,12 +17,13 @@
    <div class="card rounded" style="width: 18rem;">
     <div class="card-body">
     <a href="{% url 'category_index' budget.id %}" class="text-decoration-none">
-      <span class="card-title">{{ budget.name }}</span>
-      <p>Name: {{ budget.name }}</p>
+  <div class="card-header border border-success rounded">
+    {{ budget.name }}
+  </div>
       <p>Total: ${{ budget.total }}</p>
-        <p>Length: {{ budget.length}}</p>
+      <p>Length: {{ budget.length}}</p>
         </a>
-  <div class="btn">
+<div class="btn">
     <a href="{% url 'budget_update' budget.id %}">
       <button type="button" class="btn btn-outline-success rounded-pill">Edit</button>
     </a>

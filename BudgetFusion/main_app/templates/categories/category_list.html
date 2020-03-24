@@ -1,5 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Categories List</h1>
+<div class="d-flex justify-content-between">
+    <p></p>
+    <h1 class="ml-5">Categories List</h1>
+    <a href="{% url 'category_create' budget.id%}" >
+        <button type="button" class="btn btn-outline-success rounded-pill mb-5 mt-1 mr-2">Add Category</button>
+    </a>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-4">
@@ -7,9 +13,16 @@
             <a href="{% url 'expense_index' budget_id category.id %}" class="text-decoration-none">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <span class="card-title">{{ category.name }}</span>
-                        <p>Name: {{ category.name }}</p>
+                        <span id='category-name' class="card-title">{{ category.name }}</span>
                         <p>Total: ${{ category.total }}</p>
+                    </div>
+                    <div class="btn">
+                        <a href="{% url 'category_update' budget_id category.id%}">
+                            <button type="button" class="btn btn-outline-success rounded-pill">Edit</button>
+                        </a>
+                        <a href="{% url 'category_delete' budget_id category.id %}">
+                            <button class="btn btn-success rounded-pill">Delete</button>
+                        </a>
                     </div>
                 </div>
             </a>
