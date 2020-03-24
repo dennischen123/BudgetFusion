@@ -24,12 +24,12 @@ console.log(getRandomColor())
 
 function renderGraph(event) {
     event.preventDefault()
-    renderHelper(event.target.id)
+    renderHelper(event.target.getAttribute('value') ,event.target.id)
 }
 
 
-function renderHelper(budget_id) {
-    fetch('http://localhost:8000/api/user/1/budget/' + budget_id)
+function renderHelper(user_id, budget_id) {
+    fetch('http://localhost:8000/api/user/' + user_id + '/budget/' + budget_id)
         .then((response) => {
             return response.json()
         })

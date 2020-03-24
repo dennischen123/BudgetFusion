@@ -31,6 +31,9 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'reports' user.id %}">Reports</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -44,7 +47,7 @@
   <div id="budgets" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     {% for budget in budgets %}
         {% comment %} <a id="{{ budget.id }}" class="dropdown-item" value="{{budget.id}}" href="{% url 'api' user.id budget.id%}">{{ budget.name }}</a> {% endcomment %}
-        <a id="{{ budget.id }}" class="dropdown-item" value="{{budget.id}}" href="">{{ budget.name }}</a>
+        <a id="{{ budget.id }}" class="dropdown-item" value="{{user.id}}" href="">{{ budget.name }}</a>
     {% endfor %}
   </div>
 </div>
@@ -55,7 +58,7 @@
     <div class="container">
         <div class="row">
             {% comment %} <div class="col-3"></div> {% endcomment %}
-            <div class="col-12 mb-5">
+            <div class="col-12">
                 <canvas id="myChart" width="300" height="150"></canvas>
             </div>
             {% comment %} <div class="col-3"></div> {% endcomment %}
