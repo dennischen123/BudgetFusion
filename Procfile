@@ -1,1 +1,1 @@
-web:unicorn budgetfusion.wsgi
+web:gunicorn budgetfusion.wsgi
