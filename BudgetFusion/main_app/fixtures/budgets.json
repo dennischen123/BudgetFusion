@@ -1,0 +1,31 @@
+[{
+        "model": "main_app.budget",
+        "pk": 1,
+        "fields": {
+            "name": "Juice's Monthly",
+            "total": "2000",
+            "length": "Month",
+            "user": 1
+        }
+    },
+    {
+        "model": "main_app.budget",
+        "pk": 2,
+        "fields": {
+            "name": "Car",
+            "total": "5000",
+            "length": "Year",
+            "user": 1
+        }
+    },
+    {
+        "model": "main_app.budget",
+        "pk": 3,
+        "fields": {
+            "name": "Vacation",
+            "total": "10000",
+            "length": "Year",
+            "user": 1
+        }
+    }
+]

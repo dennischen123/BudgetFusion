@@ -4,10 +4,10 @@
 <div class="container">
     <div class="row d-flex justify-content-center">
             <div class="card border border-success mt-5">
-                <h1 class="card-header border border-success" id="title">Category Form</h1> ​
+                <h1 class="card-header border border-success" id="title">Expense Form</h1> ​
                 <div class="card-body">
                     <form method="POST" class="form">
-                        {% csrf_token %}
+                    {% csrf_token %}
                         {{ form.as_p}}
                         <button type="submit" class="btn btn-success rounded-pill">Submit</button>
                     </form>
@@ -16,5 +16,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}

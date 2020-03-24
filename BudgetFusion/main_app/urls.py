@@ -27,7 +27,7 @@ urlpatterns = [
     # crud routes for Expense
     path('budgets/<int:budget_id>/categories/<int:category_id>/expenses/', views.expense_index, name="expense_index"),
     path('budgets/<int:budget_id>/categories/<int:category_id>/expenses/<int:expense_id>/detail/', views.expense_detail, name="expense_detail"),
-    path('budgets/<int:budget_id>/categories/<int:category_id>/expenses/create/', views.expense_index, name="expense_create"),
+    path('budgets/<int:budget_id>/categories/<int:category_id>/expenses/create/', views.expense_create, name="expense_create"),
     path('budgets/<int:budget_id>/categories/<int:category_id>/expenses/<int:expense_id>/update', views.expense_update, name="expense_update"),
     path('budgets/<int:budget_id>/categories/<int:category_id>/expenses/<int:expense_id>/delete', views.expense_delete, name="expense_delete"),
 

@@ -1,0 +1,73 @@
+[{
+        "model": "main_app.category",
+        "pk": 1,
+        "fields": {
+            "name": "Gas",
+            "total": "200",
+            "budget": 1
+        }
+    },
+    {
+        "model": "main_app.category",
+        "pk": 2,
+        "fields": {
+            "name": "Food",
+            "total": "800",
+            "budget": 1
+        }
+    },
+    {
+        "model": "main_app.category",
+        "pk": 3,
+        "fields": {
+            "name": "Alcohol",
+            "total": "1000",
+            "budget": 1
+        }
+    },
+    {
+        "model": "main_app.category",
+        "pk": 4,
+        "fields": {
+            "name": "Car Maintenance",
+            "total": "1000",
+            "budget": 2
+        }
+    },
+    {
+        "model": "main_app.category",
+        "pk": 5,
+        "fields": {
+            "name": "Gas",
+            "total": "4000",
+            "budget": 2
+        }
+    },
+    {
+        "model": "main_app.category",
+        "pk": 6,
+        "fields": {
+            "name": "Flight/Hotel",
+            "total": "3000",
+            "budget": 3
+        }
+    },
+    {
+        "model": "main_app.category",
+        "pk": 7,
+        "fields": {
+            "name": "Food",
+            "total": "3500",
+            "budget": 3
+        }
+    },
+    {
+        "model": "main_app.category",
+        "pk": 8,
+        "fields": {
+            "name": "Others",
+            "total": "3500",
+            "budget": 3
+        }
+    }
+]

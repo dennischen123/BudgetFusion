@@ -8,15 +8,14 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet">
 
-
 </head>
 <body>
 <form method="post" class="Box" action="{% url 'login' %}">
 <h1>Login</h1>
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" class="btn btn-success rounded-pill" value="Login">
-  <div class="d-flex justify-content-center links">
+  <input id="submit" type="submit" class="btn btn-success rounded-pill" value="Login">
+  <div id="submit" class="d-flex justify-content-center links">
 						Don't have an account? <a href="{% url 'signup' %}" class="ml-2">Sign Up</a>
 	</div>
   <input type="hidden" name="next" value="{{ next }}">
