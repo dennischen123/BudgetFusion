@@ -20,7 +20,6 @@ const getRandomColor = () => {
     return color    
 }
 
-console.log(getRandomColor())
 
 function renderGraph(event) {
     event.preventDefault()
@@ -35,7 +34,6 @@ function renderHelper(user_id, budget_id) {
         })
         .then((data) => {
             render(data)
-            // console.log(data)
         })
 }
 
