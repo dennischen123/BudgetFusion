@@ -1,5 +1,4 @@
 {
     "python.pythonPath": ".env/bin/python3.7",
     "emmet.includeLanguages": {"django-html": "html"}
-
 }

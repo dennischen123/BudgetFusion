@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block content %}
+<div class="d-flex justify-content-between">
+    <p></p>
+    <h1 class="ml-5">Category Details</h1>
+    <a href="{% url 'expense_create' budget_id category_id %}" >
+        <button type="button" class="btn btn-outline-success rounded-pill mb-5 mt-1 mr-2">Add Expense</button>
+    </a>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            {% for category in categories %}
+            {% if category.id == category_id%}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <a href="{% url 'category_index' budget_id%}" class="text-decoration-none">
+                        <span class="card-title">{{ category.name }}</span>
+                        <p>Total: ${{ category.total }}</p>
+                        </a>
+                    </div>
+            {% endif%}
+            {% endfor %}
+        </div>
+
+        <div class="col-6">
+            {% for expense in expenses %}
+                <div id="expense-toggle" class="card" style="width: 20rem height: 25rem;">
+                    <div class="card-body">
+                        <span class="card-title">Expense Details</span>
+                        <p>Name: {{ expense.name }}</p>
+                        <p>Amount: ${{ expense.amount }}</p>
+                        <p>Date: {{ expense.date }}</p>
+                        <p></p>
+                        <div class="btn">
+                            <a href="{% url 'expense_update' budget_id category_id expense.id%}">
+                                <button type="button" class="btn btn-outline-success rounded-pill">Edit</button>
+                            </a>
+                            <a href="{% url 'expense_delete' budget_id category_id expense.id %}">
+                                <button class="btn btn-success rounded-pill">Delete</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

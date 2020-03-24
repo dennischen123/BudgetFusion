@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="d-flex justify-content-between">
+  <p></p>
+  <h1 class="ml-5">My Budgets</h1>
+  <a href="{% url 'budget_create'%}" >
+    <button type="button" class="btn btn-outline-success rounded-pill mb-5 mt-1 mr-1">Add Budget</button>
+  </a>
+</div>
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    {% for budget in budgets %}
+      {% if budget.user.id == user.id%}
+        <div class="card rounded" style="width: 18rem;">
+        <div class="card-body">
+          <a href="{% url 'category_index' budget.id %}" class="text-decoration-none">
+          <div class="card-header border border-success rounded">
+            {{ budget.name }}
+          </div>
+          <p>Total: ${{ budget.total }}</p>
+          <p>Length: {{ budget.length}}</p>
+          </a>
+          <div class="btn">
+              <a href="{% url 'budget_update' budget.id %} class="text-decoration-none"">
+                <button type="button" class="btn btn-outline-success rounded-pill">Edit</button>
+              </a>
+              <a href="{% url 'budget_delete' budget.id %} class="text-decoration-none"">
+                <button class="btn btn-success rounded-pill">Delete</button>
+              </a>
+          </div>
+        </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

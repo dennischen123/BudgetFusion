@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/Users/Dennis/coding/GA-SEI/fundamentals/django/BudgetFusion/.env"
+$VIRTUAL_ENV = r"/Users/marcusgillespie/GA_SEI/homework/BudgetFusion/.env"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

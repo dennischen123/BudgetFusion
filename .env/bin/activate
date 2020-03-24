@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='/Users/Dennis/coding/GA-SEI/fundamentals/django/BudgetFusion/.env'
+VIRTUAL_ENV='/Users/marcusgillespie/GA_SEI/homework/BudgetFusion/.env'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

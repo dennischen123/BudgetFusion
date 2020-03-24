@@ -1,0 +1,81 @@
+[{
+        "model": "main_app.expense",
+        "pk": 1,
+        "fields": {
+            "name": "Shell",
+            "amount": "50",
+            "date": "2020-03-17",
+            "category": 1
+        }
+    },
+    {
+        "model": "main_app.expense",
+        "pk": 2,
+        "fields": {
+            "name": "Canto Cafe - Panini",
+            "amount": "30",
+            "date": "2020-03-17",
+            "category": 2
+        }
+    },
+    {
+        "model": "main_app.expense",
+        "pk": 3,
+        "fields": {
+            "name": "Trulies",
+            "amount": "30",
+            "date": "2020-03-17",
+            "category": 3
+        }
+    },
+    {
+        "model": "main_app.expense",
+        "pk": 4,
+        "fields": {
+            "name": "Oil change",
+            "amount": "200",
+            "date": "2020-03-17",
+            "category": 4
+        }
+    },
+    {
+        "model": "main_app.expense",
+        "pk": 5,
+        "fields": {
+            "name": "Shell",
+            "amount": "40",
+            "date": "2020-03-17",
+            "category": 5
+        }
+    },
+    {
+        "model": "main_app.expense",
+        "pk": 6,
+        "fields": {
+            "name": "AirBnB",
+            "amount": "1000",
+            "date": "2020-03-17",
+            "category": 6
+        }
+    },
+    {
+        "model": "main_app.expense",
+        "pk": 7,
+        "fields": {
+            "name": "Burger King",
+            "amount": "10",
+            "date": "2020-03-17",
+            "category": 7
+        }
+    },
+    {
+        "model": "main_app.expense",
+        "pk": 8,
+        "fields": {
+            "name": "Others",
+            "amount": "3500",
+            "date": "2020-03-17",
+            "category": 8
+        }
+    }
+]
