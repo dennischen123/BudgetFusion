@@ -4,11 +4,10 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
-    # testing
-    path('reports/<int:user_id>/', views.reports, name='reports'),
+    
     # api route for report
+    path('reports/<int:user_id>/', views.reports, name='reports'),
     path('api/user/<int:user_id>/budget/<int:budget_id>/', views.api, name='api'),
-    # path('api/reports/budgets/<int:budget_id>/categories/<int:category_id>/expenses/', views.reports_detail, name="reports_detail"),
 
     # crud routes for Budget
     path('budgets/', views.budget_index, name="budget_index"),
@@ -31,5 +30,6 @@ urlpatterns = [
     path('budgets/<int:budget_id>/categories/<int:category_id>/expenses/<int:expense_id>/update', views.expense_update, name="expense_update"),
     path('budgets/<int:budget_id>/categories/<int:category_id>/expenses/<int:expense_id>/delete', views.expense_delete, name="expense_delete"),
 
+    # signup
     path('accounts/signup', views.signup, name='signup'),
 ]
