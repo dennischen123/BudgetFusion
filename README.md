@@ -3,6 +3,12 @@
 Keep track of your spending!
 
 ## Technologies Used
+Javascript
+
+HTML
+
+CSS
+
 [Python3](https://www.python.org/download/releases/3.0/)
 
 [Django](https://www.djangoproject.com/)
