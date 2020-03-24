@@ -3,7 +3,7 @@
 {% block content %}
 <div class="d-flex justify-content-between">
   <p></p>
-  <h1 class="ml-4">My Budgets</h1>
+  <h1 class="ml-5">My Budgets</h1>
   <a href="{% url 'budget_create'%}" >
     <button type="button" class="btn btn-outline-success rounded-pill mb-5 mt-1 mr-1">Add Budget</button>
   </a>
@@ -20,7 +20,6 @@
   <div class="card-header border border-success rounded">
     {{ budget.name }}
   </div>
-      {% comment %} <span class="card-title">{{ budget.name }}</span> {% endcomment %}
       <p>Total: ${{ budget.total }}</p>
       <p>Length: {{ budget.length}}</p>
         </a>

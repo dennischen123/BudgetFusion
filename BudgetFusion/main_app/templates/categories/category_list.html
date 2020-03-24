@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 <h1>Categories List</h1>
 <div class="container">
     <div class="row">
@@ -7,8 +8,7 @@
             <a href="{% url 'expense_index' budget_id category.id %}" class="text-decoration-none">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <span class="card-title">{{ category.name }}</span>
-                        <p>Name: {{ category.name }}</p>
+                        <span id='category-name' class="card-title">{{ category.name }}</span>
                         <p>Total: ${{ category.total }}</p>
                     </div>
                 </div>
