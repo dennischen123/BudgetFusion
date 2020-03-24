@@ -47,7 +47,6 @@
 
   <div id="budgets" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     {% for budget in budgets %}
-        {% comment %} <a id="{{ budget.id }}" class="dropdown-item" value="{{budget.id}}" href="{% url 'api' user.id budget.id%}">{{ budget.name }}</a> {% endcomment %}
         <a id="{{ budget.id }}" class="dropdown-item" value="{{user.id}}" href="">{{ budget.name }}</a>
     {% endfor %}
   </div>
