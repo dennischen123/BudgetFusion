@@ -23,10 +23,10 @@
           <p>Length: {{ budget.length}}</p>
           </a>
           <div class="btn">
-              <a href="{% url 'budget_update' budget.id %}">
+              <a href="{% url 'budget_update' budget.id %} class="text-decoration-none"">
                 <button type="button" class="btn btn-outline-success rounded-pill">Edit</button>
               </a>
-              <a href="{% url 'budget_delete' budget.id %}">
+              <a href="{% url 'budget_delete' budget.id %} class="text-decoration-none"">
                 <button class="btn btn-success rounded-pill">Delete</button>
               </a>
           </div>

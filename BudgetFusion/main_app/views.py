@@ -21,8 +21,6 @@ def api(request, user_id, budget_id):
     categories = list(budget.category_set.values())
     expenses = Expense.objects.filter(category__budget_id=budget_id)
     expenses_json = list(expenses.values())
-    print(f'expenses = {expenses}')
-    print(f'expenses_json = {expenses_json}')
 
     expenses_total = 0
     for expense in expenses:
@@ -33,7 +31,6 @@ def api(request, user_id, budget_id):
 @login_required
 def reports(request, user_id):
     budgets = Budget.objects.filter(user_id=user_id)
-    print(budgets)
     return render(request, 'reports/reports.html', {'budgets': budgets})
 
 
