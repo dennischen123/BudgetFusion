@@ -40,7 +40,6 @@ span {
     -webkit-text-fill-color: transparent
   }
 
-
 /* Signup */
 .Box{
     width: 300px;
@@ -105,10 +104,8 @@ span {
   font-family: 'Passion One', cursive;
 }
 
-
 /* Home Page */
 #circle {
-
     animation: wheel 10s infinite linear alternate;
     transform-origin: center;
     transform-box: fill-box;
@@ -200,20 +197,15 @@ span {
   color: #2980b9;
 }
 
-
-
-
-
-
 /* Budget Form */
-.budget-form input {
-  border: 0;
-  margin: 20px auto;
+.form input {
   text-align: center;
   border: 2px solid #8BC34A;
   width: 200px;
   outline: none;
   color: black;
-  border-radius: 24px;
+  border-radius: 10px;
   transition: 0.25s;
+  font-family: 'Passion One', cursive;
+
 }
