@@ -1,5 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Category Detail View</h1>
+<div class="d-flex justify-content-between">
+    <p></p>
+    <h1 class="ml-5">Category Details</h1>
+    <a href="{% url 'expense_create' budget_id category_id %}" >
+        <button type="button" class="btn btn-outline-success rounded-pill mb-5 mt-1 mr-2">Add Expense</button>
+    </a>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-6">
@@ -25,6 +31,14 @@
                         <p>Amount: ${{ expense.amount }}</p>
                         <p>Date: {{ expense.date }}</p>
                         <p></p>
+                        <div class="btn">
+                            <a href="{% url 'expense_update' budget_id category_id expense.id%}">
+                                <button type="button" class="btn btn-outline-success rounded-pill">Edit</button>
+                            </a>
+                            <a href="{% url 'expense_delete' budget_id category_id expense.id %}">
+                                <button class="btn btn-success rounded-pill">Delete</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             {% endfor %}
