@@ -37,14 +37,6 @@ def reports(request, user_id):
     print(budgets)
     return render(request, 'reports/reports.html', {'budgets': budgets})
 
-#actual reports function
-# def reports_detail(request, budget_id):
-#     categories = Category.objects.filter(budget_id=budget_id)
-#     context = {
-
-#     }
-#     return render(request, 'reports/reports.html', {context})
-#### reports testing ends #######################
 
 # crud functions for Budget ###
 ###########################################################
@@ -107,7 +99,7 @@ def budget_delete(request, budget_id):
 def category_index(request, budget_id):
     budget = Budget.objects.get(id=budget_id)
     categories = Category.objects.filter(budget_id=budget_id)
-    return render(request, 'categories/category_list.html', { 'categories': categories, 'budget' : budget, 'budget_id' : budget_id })
+    return render(request, 'categories/category_list.html', { 'categories': categories, 'budget' : budget, 'budget_id' : budget.id })
 
     
 # function for detail(single Category)
@@ -116,11 +108,15 @@ def category_detail(request, budget_id, category_id):
 
 
 # function for create
-def category_create(request, budget_id, category_id):
+def category_create(request, budget_id):
     if request.method == 'POST':
         form = CategoryForm(request.POST)
         if form.is_valid():
-            return redirect('category_index', budget_id)
+            category = form.save(commit=False)
+            category.budget_id = budget_id
+            category.save()
+        return redirect('category_index', budget_id)
+            # return redirect('category_index', budget_id)
     else:
         form = CategoryForm()
     return render(request, 'categories/category_form.html', { 'form' : form})
@@ -132,7 +128,7 @@ def category_update(request, budget_id, category_id):
         form = CategoryForm(request.POST, instance=category)
         if form.is_valid():
             category = form.save()
-            return redirect('category_index', budget_id, category_id)
+            return redirect('category_index', budget_id)
     else:
         form = CategoryForm(instance=category)
     return render(request, 'categories/category_form.html', { 'form' : form})
