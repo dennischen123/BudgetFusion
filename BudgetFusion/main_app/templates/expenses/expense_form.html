@@ -7,7 +7,7 @@
                 <h1 class="card-header border border-success" id="title">Expense Form</h1> ​
                 <div class="card-body">
                     <form method="POST" class="form">
-                     {% csrf_token %}
+                    {% csrf_token %}
                         {{ form.as_p}}
                         <button type="submit" class="btn btn-success rounded-pill">Submit</button>
                     </form>

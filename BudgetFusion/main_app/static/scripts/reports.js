@@ -1,14 +1,13 @@
-console.log("sanity check!")
-
 let labelsArray = []
 let colorArray = []
 let borderArray = []
 let dataArray = []
+
 let ctx = document.getElementById('myChart').getContext('2d');
 let ctx2 = document.getElementById('mixedChart').getContext('2d');
+
 let budgets_select = document.querySelectorAll('#budgets a')
 budgets_select.forEach(budget => budget.addEventListener('click', renderGraph))
-
 
 
 const getRandomColor = () => {
@@ -20,7 +19,6 @@ const getRandomColor = () => {
     return color    
 }
 
-console.log(getRandomColor())
 
 function renderGraph(event) {
     event.preventDefault()
@@ -35,7 +33,6 @@ function renderHelper(user_id, budget_id) {
         })
         .then((data) => {
             render(data)
-            // console.log(data)
         })
 }
 

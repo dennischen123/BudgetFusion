@@ -11,31 +11,31 @@
 
 
 <div class="container">
-<div class="row justify-content-center">
-{% for budget in budgets %}
-  {% if budget.user.id == user.id%}
-   <div class="card rounded" style="width: 18rem;">
-    <div class="card-body">
-    <a href="{% url 'category_index' budget.id %}" class="text-decoration-none">
-  <div class="card-header border border-success rounded">
-    {{ budget.name }}
+  <div class="row justify-content-center">
+    {% for budget in budgets %}
+      {% if budget.user.id == user.id%}
+        <div class="card rounded" style="width: 18rem;">
+        <div class="card-body">
+          <a href="{% url 'category_index' budget.id %}" class="text-decoration-none">
+          <div class="card-header border border-success rounded">
+            {{ budget.name }}
+          </div>
+          <p>Total: ${{ budget.total }}</p>
+          <p>Length: {{ budget.length}}</p>
+          </a>
+          <div class="btn">
+              <a href="{% url 'budget_update' budget.id %}">
+                <button type="button" class="btn btn-outline-success rounded-pill">Edit</button>
+              </a>
+              <a href="{% url 'budget_delete' budget.id %}">
+                <button class="btn btn-success rounded-pill">Delete</button>
+              </a>
+          </div>
+        </div>
+        </div>
+      {% endif %}
+    {% endfor %}
   </div>
-      <p>Total: ${{ budget.total }}</p>
-      <p>Length: {{ budget.length}}</p>
-        </a>
-<div class="btn">
-    <a href="{% url 'budget_update' budget.id %}">
-      <button type="button" class="btn btn-outline-success rounded-pill">Edit</button>
-    </a>
-    <a href="{% url 'budget_delete' budget.id %}">
-      <button class="btn btn-success rounded-pill">Delete</button>
-    </a>
-</div>
-    </div>
-  </div>
-  {% endif %}
-{% endfor %}
-</div>
 </div>
 
 {% endblock %}
