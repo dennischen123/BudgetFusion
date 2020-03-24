@@ -1,43 +1,32 @@
 console.log("sanity check!")
 
-
-// let ctx = document.getElementById('myChart').getContext('2d');
-// let myChart = new Chart(ctx, {
-//     type: 'doughnut',
-//     data: {
-//         labels: ['Utility', 'Transportation', 'Shopping', 'dinner', 'bar', 'groceries'],
-//         datasets: [{
-//             data: [12, 19, 3, 5, 2, 3],
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(255, 206, 86, 0.2)',
-//                 'rgba(75, 192, 192, 0.2)',
-//                 'rgba(153, 102, 255, 0.2)',
-//                 'rgba(255, 159, 64, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(255, 99, 132, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(255, 206, 86, 1)',
-//                 'rgba(75, 192, 192, 1)',
-//                 'rgba(153, 102, 255, 1)',
-//                 'rgba(255, 159, 64, 1)'
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-// });
+let labelsArray = []
+let colorArray = []
+let borderArray = []
+let dataArray = []
+let ctx = document.getElementById('myChart').getContext('2d');
 let ctx2 = document.getElementById('mixedChart').getContext('2d');
 let budgets_select = document.querySelectorAll('#budgets a')
 budgets_select.forEach(budget => budget.addEventListener('click', renderGraph))
 
+
+
+const getRandomColor = () => {
+    color = "rgba("
+    for (i = 0; i < 3; i++) {
+        color += Math.floor(Math.random() * (255)) + 0 + ', '
+    }
+    color += '1)'
+    return color    
+}
+
+console.log(getRandomColor())
+
 function renderGraph(event) {
-    // ProgressEvent.default()
     event.preventDefault()
     renderHelper(event.target.id)
 }
-// console.log(budgets_select)
+
 
 function renderHelper(budget_id) {
     fetch('http://localhost:8000/api/user/1/budget/' + budget_id)
@@ -45,78 +34,59 @@ function renderHelper(budget_id) {
             return response.json()
         })
         .then((data) => {
-
             render(data)
-            console.log(data)
+            // console.log(data)
         })
-
-    const render = (data) => {
-        let mixedChart = new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                datasets: [{
-                    label: data.budget_name,
-                    data: [data.budget_total],
-                    backgroundColor: 'rgba(255, 99, 132)',
-
-                }, {
-                    label: 'Currently',
-                    data: [data.expense_total],
-                    backgroundColor: 'rgba(255, 99, 132, 0.8',
-                    type: 'bar'
-                }],
-                labels: ['Budget1']
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-    }
 }
 
-// fetch('http://localhost:8000/api/user/1/budget/4')
-//     .then((response) => {
-//         return response.json()
-//     })
-//     .then((data) => {
+const render = (data) => {
+    labelsArray.length = 0 
+    colorArray.length = 0
+    borderArray.length = 0
+    dataArray.length = 0
+    data.categories.forEach(e => labelsArray.push(e.name))
+    data.categories.forEach(e => dataArray.push(e.total))
+    data.categories.forEach(e => colorArray.push(getRandomColor()))
+    data.categories.forEach(e => borderArray.push(getRandomColor()))
 
-//         render(data)
-//         console.log(data)
-//     })
+    let myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labelsArray,
+            datasets: [{
+                data: dataArray,
+                backgroundColor: colorArray,
+                borderColor: borderArray,
+                borderWidth: 1
+            }]
+        },
+    });
 
-// const render = (data) => {
-//     let mixedChart = new Chart(ctx2, {
-//         type: 'bar',
-//         data: {
-//             datasets: [{
-//                 label: data.budget_name,
-//                 data: [data.budget_total],
-//                 backgroundColor: 'rgba(255, 99, 132)',
+    let mixedChart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            datasets: [{
+                label: data.budget_name,
+                data: [data.budget_total],
+                backgroundColor: 'rgba(216, 28, 28)',
 
-//             }, {
-//                 label: 'Currently',
-//                 data: [data.expense_total],
-//                 backgroundColor: 'rgba(255, 99, 132, 0.8',
-//                 type: 'bar'
-//             }],
-//             labels: ['Budget1']
-//         },
-//         options: {
-//             scales: {
-//                 yAxes: [{
-//                     ticks: {
-//                         beginAtZero: true
-//                     }
-//                 }]
-//             }
-//         }
-//     });
+            }, {
+                label: 'Currently',
+                data: [data.expense_total],
+                backgroundColor: 'rgba(28, 144, 216, 0.8',
+                type: 'bar'
+            }],
+            labels: [data.budget_name]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
 
-// }
+}
