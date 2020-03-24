@@ -228,3 +228,16 @@ a {
 }
 
 /*  Sign Up Button */
+
+/* Budget Form */
+.budget-form input {
+  border: 0;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #8BC34A;
+  width: 200px;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition: 0.25s;
+}
