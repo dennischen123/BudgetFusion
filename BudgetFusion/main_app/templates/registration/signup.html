@@ -7,8 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet">
-
-
+  <title>Signup Page</title>
 </head>
 <body>
 <form method="post" class="Box" action="{% url 'signup' %}">
@@ -18,8 +17,8 @@
 {% endif %}
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" class="btn btn-success rounded-pill" value="Signup">
-  <div class="d-flex justify-content-center links">
+  <input id="submit" type="submit" class="btn btn-success rounded-pill" value="Signup">
+  <div id="submit" class="d-flex justify-content-center links">
 			Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
 	</div>
 </form>
