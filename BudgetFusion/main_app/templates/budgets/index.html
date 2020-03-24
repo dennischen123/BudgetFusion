@@ -7,7 +7,7 @@
   <a href="{% url 'budget_create'%}" >
     <button type="button" class="btn btn-outline-success rounded-pill mb-5 mt-1 mr-2">Add Budget</button>
   </a>
-  </div>
+</div>
 
 
 <div class="container">
@@ -22,7 +22,7 @@
       <p>Total: ${{ budget.total }}</p>
         <p>Length: {{ budget.length}}</p>
         </a>
-  <div class="btn">
+<div class="btn">
     <a href="{% url 'budget_update' budget.id %}">
       <button type="button" class="btn btn-outline-success rounded-pill">Edit</button>
     </a>
