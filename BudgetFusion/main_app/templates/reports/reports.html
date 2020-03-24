@@ -29,12 +29,26 @@
         <a class="nav-link" href="{% url 'budget_index' %}">All Budgets</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'reports' %}">Reports</a>
+        <a class="nav-link" href="{% url 'reports' user.id %}">Reports</a>
       </li>
     </ul>
   </div>
 </nav>
     </header>
+<section>
+  <div class="dropdown show">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Select Budget
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    {% for budget in budgets %}
+        <a class="dropdown-item" href="#">{{ budget.name }}</a>
+    {% endfor %}
+  </div>
+</div>
+</section>
+
 
 <main>
     <div class="container">

@@ -30,6 +30,7 @@ class Budget(models.Model):
     def get_expenses(self, category):
         return Expense.objects.filter(category_id=category.id)
 
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
     total = models.IntegerField(default=0)

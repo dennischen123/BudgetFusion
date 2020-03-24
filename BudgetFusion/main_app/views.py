@@ -1,9 +1,15 @@
+import json
+from django.core import serializers
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import Budget, Category, Expense
 from .forms import BudgetForm, CategoryForm, ExpenseForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+
+class JsonSerializable(object):
+    def toJson(self):
+        return json.dumps(self.__dict__)
 
 # Create your views here.
 def home(request):
@@ -12,13 +18,26 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+# Users -> Budget -> Category -> expense
+# need budget_name,budget_total and  Total of all expense amount
+def api(request, user_id, budget_id):
+    budgets = Budget.objects.filter(user_id=user_id)
+    budget = Budget.objects.get(id=budget_id)
+    expenses = Expense.objects.filter(category__budget_id=budget_id)
+    expenses_json = list(expenses.values())
+    # budget_json = list(budget.values())
+    expenses_total = 0
+    for expense in expenses:
+        expenses_total += expense.amount
+    budgets_json = list(budgets.values())
+    return JsonResponse({'budget_name' : budget.name ,'budget_total': budget.total, 'expense_total' : expenses_total, 'budgets' : budgets_json}, safe=False)
+
 ## reports testing start #############
     #testing only
-def reports(request):
-    # hard coded data for testing graphs
-    current = [25, 30, 25, 35]
-    budget = [30, 20, 30, 40]
-    return render(request, 'reports/reports.html', {'current': current, 'budget' : budget})
+def reports(request, user_id):
+    budgets = Budget.objects.filter(user_id=user_id)
+    print(budgets)
+    return render(request, 'reports/reports.html', {'budgets': budgets})
 
 #actual reports function
 def reports_detail(request, budget_id):
