@@ -17,10 +17,12 @@
    <div class="card rounded" style="width: 18rem;">
     <div class="card-body">
     <a href="{% url 'category_index' budget.id %}" class="text-decoration-none">
-      <span class="card-title">{{ budget.name }}</span>
-      <p>Name: {{ budget.name }}</p>
+  <div class="card-header border border-success rounded">
+    {{ budget.name }}
+  </div>
+      {% comment %} <span class="card-title">{{ budget.name }}</span> {% endcomment %}
       <p>Total: ${{ budget.total }}</p>
-        <p>Length: {{ budget.length}}</p>
+      <p>Length: {{ budget.length}}</p>
         </a>
   <div class="btn">
     <a href="{% url 'budget_update' budget.id %}">
