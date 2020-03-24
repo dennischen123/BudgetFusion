@@ -147,7 +147,7 @@ span {
   color: #000;
   text-align: left;
   font-size: 20px;
-  background: #fff;
+  background:rgba(199, 188, 188, 0.541);
   border-radius: 5px;
 }
 
@@ -203,8 +203,30 @@ span {
   border: 2px solid #8BC34A;
   width: 200px;
   outline: none;
-  color: black;
   border-radius: 10px;
   transition: 0.25s;
   font-family: 'Passion One', cursive;
+  font-size: 30px;
+
+}
+
+
+/* Budget Form 2.0 */
+.card-section{
+  padding: 40px 14 80px ;
+}
+
+.card{
+  padding: 15px;
+  margin-bottom:15px;
+  border:none!important;
+  background-image: linear-gradient(to right, #efefbb, #d4d3dd);
+  font-family: 'Passion One', cursive;
+  font-size: 20px;
+  color: #000;
+}
+
+.budget {
+  font-weight: bold;
+  font-size: 30px;
 }
