@@ -43,6 +43,62 @@ a {
     -webkit-text-fill-color: transparent
   }
 
+
+  /* Signup */
+  .Box{
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background:#28a745;
+    text-align: center;
+}
+
+.Box h1{
+    color:green;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.Box input[type = "text"],.Box input[ type = "Password"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #03A9F4;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+.Box input[type = "text"]:focus,.Box input[ type = "Password"]:focus{
+    width: 180px;
+    border-color: #8BC34A;
+}
+.Box input[Type="submit"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #8BC34A;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.Box input[type="submit"]:hover{
+    background: #8BC34A;
+}
+
+
   /* Home Page */
   #circle {
 
@@ -76,9 +132,6 @@ a {
 }
 
 /* About Page */
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 .snip1568 {
   font-family: "Open Sans", Arial, sans-serif;
   position: relative;
