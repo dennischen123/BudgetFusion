@@ -14,37 +14,38 @@
     <link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
     <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-success">
-  <a class="navbar-brand" href="/">Budget Fusion</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'about' %}">About<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'budget_index' %}">Budgets</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'reports' user.id %}">Reports</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+      <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <a class="navbar-brand" href="/">Budget Fusion</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'about' %}">About<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'budget_index' %}">Budgets</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'reports' user.id %}">Reports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
+
 <section>
   <div class="dropdown show mt-3">
   <a class="btn btn-secondary dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Select Budget
   </a>
-
   <div id="budgets" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     {% for budget in budgets %}
         <a id="{{ budget.id }}" class="dropdown-item" value="{{user.id}}" href="">{{ budget.name }}</a>
@@ -53,15 +54,12 @@
 </div>
 </section>
 
-
 <main>
     <div class="container">
         <div class="row">
-            {% comment %} <div class="col-3"></div> {% endcomment %}
             <div class="col-12">
                 <canvas id="myChart" width="300" height="150"></canvas>
             </div>
-            {% comment %} <div class="col-3"></div> {% endcomment %}
         </div>
         <div class="row">
             <div class="col-1"></div>
@@ -73,11 +71,10 @@
     </div>
 </main>
 
-   <footer class="page-footer">
-<div class="right">All Rights Reserved, &copy; 2020 Budget Fusion &nbsp;</div>
-  </footer>
+<footer class="page-footer">
+  <div class="right">All Rights Reserved, &copy; 2020 Budget Fusion &nbsp;</div>
+</footer>
 
-{% comment %} JS Bootstrap {% endcomment %}
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
