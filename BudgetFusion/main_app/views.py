@@ -7,9 +7,6 @@ from .forms import BudgetForm, CategoryForm, ExpenseForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
-class JsonSerializable(object):
-    def toJson(self):
-        return json.dumps(self.__dict__)
 
 # Create your views here.
 def home(request):
@@ -19,33 +16,34 @@ def about(request):
     return render(request, 'about.html')
 
 # Users -> Budget -> Category -> expense
-# need budget_name,budget_total and  Total of all expense amount
 def api(request, user_id, budget_id):
     budgets = Budget.objects.filter(user_id=user_id)
     budget = Budget.objects.get(id=budget_id)
+    categories = list(budget.category_set.values())
     expenses = Expense.objects.filter(category__budget_id=budget_id)
     expenses_json = list(expenses.values())
-    # budget_json = list(budget.values())
+    print(f'expenses = {expenses}')
+    print(f'expenses_json = {expenses_json}')
+
     expenses_total = 0
     for expense in expenses:
         expenses_total += expense.amount
     budgets_json = list(budgets.values())
-    return JsonResponse({'budget_name' : budget.name ,'budget_total': budget.total, 'expense_total' : expenses_total, 'budgets' : budgets_json}, safe=False)
+    return JsonResponse({'categories': categories,'budget_name' : budget.name ,'budget_total': budget.total, 'expense_total' : expenses_total, 'budgets' : budgets_json}, safe=False)
 
-## reports testing start #############
-    #testing only
+
 def reports(request, user_id):
     budgets = Budget.objects.filter(user_id=user_id)
     print(budgets)
     return render(request, 'reports/reports.html', {'budgets': budgets})
 
 #actual reports function
-def reports_detail(request, budget_id):
-    categories = Category.objects.filter(budget_id=budget_id)
-    context = {
+# def reports_detail(request, budget_id):
+#     categories = Category.objects.filter(budget_id=budget_id)
+#     context = {
 
-    }
-    return render(request, 'reports/reports.html', {context})
+#     }
+#     return render(request, 'reports/reports.html', {context})
 #### reports testing ends #######################
 
 # crud functions for Budget ###

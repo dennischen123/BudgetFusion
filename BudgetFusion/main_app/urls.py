@@ -8,7 +8,7 @@ urlpatterns = [
     path('reports/<int:user_id>/', views.reports, name='reports'),
     # api route for report
     path('api/user/<int:user_id>/budget/<int:budget_id>/', views.api, name='api'),
-    path('api/reports/budgets/<int:budget_id>/categories/<int:category_id>/expenses/', views.reports_detail, name="reports_detail"),
+    # path('api/reports/budgets/<int:budget_id>/categories/<int:category_id>/expenses/', views.reports_detail, name="reports_detail"),
 
     # crud routes for Budget
     path('budgets/', views.budget_index, name="budget_index"),
