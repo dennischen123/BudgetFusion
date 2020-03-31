@@ -6,6 +6,7 @@ let dataArray = []
 let ctx = document.getElementById('myChart').getContext('2d');
 let ctx2 = document.getElementById('mixedChart').getContext('2d');
 
+let budgetTitle = document.query
 let budgets_select = document.querySelectorAll('#budgets a')
 budgets_select.forEach(budget => budget.addEventListener('click', renderGraph))
 
