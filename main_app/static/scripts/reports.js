@@ -28,7 +28,7 @@ function renderGraph(event) {
 
 
 function renderHelper(user_id, budget_id) {
-    fetch('https://budgetfusion.herokuapp.com//api/user/' + user_id + '/budget/' + budget_id)
+    fetch('https://budgetfusion.herokuapp.com/api/user/' + user_id + '/budget/' + budget_id)
         .then((response) => {
             return response.json()
         })
