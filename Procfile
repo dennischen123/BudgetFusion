@@ -1,1 +1,1 @@
-web: gunicorn BudgetFusion.wsgi
+web: gunicorn ./BudgetFusion.wsgi
