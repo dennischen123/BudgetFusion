@@ -28,5 +28,5 @@ Keep track of your spending!
 ![Wireframes](https://i.imgur.com/UHA3m8a.png)
 
 ### Authors
-__Kesha | Marcus | Dennis__
+__Dennis | Marcus | Kesha__
 
